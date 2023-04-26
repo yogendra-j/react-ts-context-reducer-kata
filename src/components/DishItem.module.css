@@ -1,0 +1,57 @@
+.dishItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.dishInfo {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.dishName {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.dishPrice {
+    font-weight: bold;
+}
+
+.actionGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex;
+}
+
+.amountInput {
+    margin-bottom: 1rem;
+}
+.amountInput label {
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.addButton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.addButton:hover {
+    background-color: #3e8e41;
+}

@@ -1,0 +1,21 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.homeSection {
+    padding: 3rem;
+    text-align: justify;
+    line-height: 1.5;
+    max-width: 600px;
+    font-size: large;
+    color: white;
+    background-color: rgb(77, 76, 76);
+    border-radius: 2%;
+}
+
+.dishesSection {
+    padding: 1rem;
+}

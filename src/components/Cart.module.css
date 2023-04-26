@@ -1,0 +1,26 @@
+.cartWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.cartLogo {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.cartText {
+    margin-right: 0.5rem;
+}
+
+.cartCount {
+    background-color: #f44336;
+    color: white;
+    border-radius: 50%;
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1;
+    display: inline-block;
+    min-width: 1rem;
+    text-align: center;
+}
