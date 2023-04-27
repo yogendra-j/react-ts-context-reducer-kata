@@ -2,18 +2,28 @@ import { CartActionKind } from '../store/CartActionKind';
 import CartContext from '../store/cart-context';
 import { TDish } from '../types/TDish';
 import classes from './DishItem.module.css';
-import {useContext, useRef} from 'react';
+import {ChangeEvent, useContext, useState} from 'react';
 
 const DishItem = ({dish}: {dish: TDish}) => {
     const cartCtx = useContext(CartContext);
-    const amountRef = useRef<HTMLInputElement>(null)
+    const [amount, setAmount] = useState(0);
+    const [isAmountDirty, setIsAmountDirty] = useState(false);
+    const isValidAmount = amount > 0;
+    const shouldShowError = !isValidAmount && isAmountDirty;
 
     const addItem = () => {
-        if (!amountRef.current?.valueAsNumber)
+        setIsAmountDirty(true);
+        if (!isValidAmount)
             return;
-        const cartItem = {dish, quantity: amountRef.current.valueAsNumber};
+        const cartItem = {dish, quantity: amount};
         cartCtx.cartDispatch({type: CartActionKind.ADD_ITEM, payload: cartItem});
     }
+
+    const amountInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
+        setAmount(event.target.valueAsNumber);
+        setIsAmountDirty(true);
+    }
+
     return (
         <div className={classes.dishItem}>
             <div className={classes.dishInfo}>
@@ -24,7 +34,8 @@ const DishItem = ({dish}: {dish: TDish}) => {
             <div className={classes.actionGroup}>
                 <p className={classes.amountInput}>
                     <label htmlFor="amount">Amount</label>
-                    <input type="number" min={0} ref={amountRef}/>
+                    <input type="number" min={0} onChange={amountInputHandler}/>
+                    {shouldShowError && <p className='error'>Amount should be greater than 0</p>}
                 </p>
                 <p>
                     <button className={classes.addButton} onClick={addItem}>+Add</button>
